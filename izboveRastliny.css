@@ -10,3 +10,23 @@ body{
 a img {
     width: 60px;
 }
+
+.obsah {
+    position: fixed;
+    width: 50%;
+    top: 70px;
+}
+
+h1 {
+    color: darkgreen;
+    font-style: oblique;
+    text-align: center;
+}
+
+p {
+    color: black;
+    font-size: medium;
+    font-style: italic;
+    line-height: 1.5;
+    text-align: center;
+}
