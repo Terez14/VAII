@@ -8,20 +8,21 @@ body {
 
 .obsah {
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
 }
 
 .text {
     border: 2px solid darkblue;
     background-color: lightskyblue;
+
 }
 
 h1 {
     color: darkgreen;
     font-style: oblique;
+    text-align: center;
 }
 
 a img {
@@ -30,11 +31,18 @@ a img {
 
 img {
     width: 75%;
+    transform: translate(15%, 0);
 }
 
 p {
     color: black;
     font-size: medium;
     font-style: italic;
+    line-height: 1.5;
+    text-align: center;
 }
+
+
+
+
 
