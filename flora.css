@@ -1,0 +1,38 @@
+body {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/000/200/461/non_2x/vector-realistic-blue-sky-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.obsah {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.text {
+    border: 2px solid darkblue;
+    background-color: lightskyblue;
+}
+
+h1 {
+    color: darkgreen;
+    font-style: oblique;
+}
+a img {
+    width: 60px;
+}
+img {
+    width: 75%;
+}
+
+p {
+    color: black;
+    font-size: medium;
+    font-style: italic;
+}
+

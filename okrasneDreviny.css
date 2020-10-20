@@ -1,0 +1,11 @@
+
+body{
+    background-image: url('https://cdnzm.fsk.sk/img/deals/20034_1aaa.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+a img {
+    width: 40px;
+}
