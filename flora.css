@@ -23,9 +23,11 @@ h1 {
     color: darkgreen;
     font-style: oblique;
 }
+
 a img {
     width: 60px;
 }
+
 img {
     width: 75%;
 }
