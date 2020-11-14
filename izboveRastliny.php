@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+<style>
+    <?php include 'izboveRastliny.css';?>
+</style>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Okrasné dreviny</title>
-    <link rel="stylesheet" href="okrasneDreviny.css">
+    <title>Izbové rastliny</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -23,13 +25,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="flora.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="izboveRastliny.html">Izbove rastliny</a>
+                    <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="okrasneDreviny.html">Okrasne dreviny</a>
+                    <a class="nav-link" href="izboveRastliny.php">Izbove rastliny </a>
                 </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
@@ -41,9 +40,9 @@
 </header>
 
 <div class="obsah">
-    <h1>Okrasné dreviny</h1>
-    <p>Okrasná rastlina je rastlina pestovaná pre svoj atraktívny vzhľad (napr. kvety, listy, habitus). Drevina je cievnatá rastlina, ktorá má drevnatú nadzemnú stonku pokrytú borkou.
-    </p>
+    <h1>Izbové rastliny</h1>
+    <p>Izbová rastlina je rastlina, ktorá sa pestuje v interiéri na miestach, ako sú rezidencie a úrady, a to najmä na dekoratívne účely.
+        Niektoré štúdie tiež preukázali, že majú pozitívne psychologické účinky a že pomáhajú pri čistení vzduchu v interiéri.</p>
 </div>
 
 </body>

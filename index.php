@@ -1,9 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+<?php include 'flora.css';?>
+</style>
+
+
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Izbové rastliny</title>
-    <link rel="stylesheet" href="izboveRastliny.css">
+    <title>Flóra</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -12,6 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </head>
+
 
 <body>
 <header>
@@ -22,14 +26,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="flora.html">Home <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="izboveRastliny.html">Izbove rastliny </a>
+                    <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="okrasneDreviny.html">Okrasne dreviny</a>
+                    <a class="nav-link" href="izboveRastliny.php">Izbove rastliny</a>
                 </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
@@ -41,9 +42,17 @@
 </header>
 
 <div class="obsah">
-    <h1>Izbové rastliny</h1>
-    <p>Izbová rastlina je rastlina, ktorá sa pestuje v interiéri na miestach, ako sú rezidencie a úrady, a to najmä na dekoratívne účely.
-            Niektoré štúdie tiež preukázali, že majú pozitívne psychologické účinky a že pomáhajú pri čistení vzduchu v interiéri.</p>
+    <h1>Flóra</h1>
+    <img src="https://www.rajec.com/files/Images/flora.jpg" alt="obrazok">
+    <div class="text">
+        <p>Súbor náhodných alebo stále sa vyskytujúcich rastlín alebo rastlinných spoločenstiev na určitom území. Často sa používa aj slovo vegetácia alebo rastlinstvo.
+            Medzi okrasné rastliny môžeme zaradiť:</p>
+        <ul>
+            <li>okrasné dreviny</li>
+            <li>izbové rastliny</li>
+            <li>okrasné byliny</li>
+        </ul>
+    </div>
 </div>
 
 </body>
