@@ -18,7 +18,6 @@
 
 
 <body>
-<header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#"> <img src="https://urobsisam.zoznam.sk/wp-content/uploads/2019/12/perex-2-840x560.jpg" alt="Logo"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +38,6 @@
             </form>
         </div>
     </nav>
-</header>
 
 <div class="obsah">
     <h1>Flóra</h1>

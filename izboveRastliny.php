@@ -1,5 +1,17 @@
+<?php
+    require "Zoznam.php";
+    $zoznam = new Zoznam();
+
+    if (isset($_POST['nazov'])){
+        $zoznam->prdajPolozku($_POST['nazov'], $_POST['popis'], $_POST['obrazok']);
+    }
+
+    $polozky = $zoznam->getAll();
+?>
 <style>
-    <?php include 'izboveRastliny.css';?>
+    <?php
+        include 'izboveRastliny.css';
+    ?>
 </style>
 
 <html lang="en">
@@ -16,8 +28,7 @@
 </head>
 
 <body>
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="#"> <img src="https://urobsisam.zoznam.sk/wp-content/uploads/2019/12/perex-2-840x560.jpg" alt="Logo"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,13 +48,21 @@
             </form>
         </div>
     </nav>
-</header>
+<a class="nav-link" href="databaza.php" >Pridaj</a>
 
-<div class="obsah">
-    <h1>Izbové rastliny</h1>
-    <p>Izbová rastlina je rastlina, ktorá sa pestuje v interiéri na miestach, ako sú rezidencie a úrady, a to najmä na dekoratívne účely.
-        Niektoré štúdie tiež preukázali, že majú pozitívne psychologické účinky a že pomáhajú pri čistení vzduchu v interiéri.</p>
-</div>
+<?php foreach ($polozky as $polozka) { ?>
+    <div class="container marketing">
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="<?=$polozka->getObrazok()?>" alt="obr">
+                <h2><?=$polozka->getNazov()?></h2>
+                <p><?=$polozka->getPopis()?></p>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+        </div>
+    </div>
+<?php } ?>
 
 </body>
 </html>

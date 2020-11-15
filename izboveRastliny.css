@@ -9,19 +9,17 @@ body {
 
 a img {
     width: 60px;
+    height: 40px;
 }
 
-.obsah {
-    position: fixed;
-    width: 50%;
-    top: 70px;
+img {
+    width: 350px;
 }
 
-h1 {
-    color: darkgreen;
-    font-style: oblique;
+h2 {
     text-align: center;
 }
+
 
 p {
     color: black;
