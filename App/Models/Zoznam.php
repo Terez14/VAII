@@ -43,4 +43,15 @@ class Zoznam
         $this->savePolozka($polozka);
 
     }
+
+
+    public function editujPolozku(string $nazov) : void {
+        $stmt = $this->pdo->prepare("SELECT * FROM polozka WHERE nazov=$nazov");
+        $stmt->execute([$nazov]);
+    }
+
+    public function zmazPolozku(string $nazov) : void {
+        $stmt = $this->pdo->prepare("DELETE * FROM polozka WHERE nazov=$nazov");
+    }
+
 }

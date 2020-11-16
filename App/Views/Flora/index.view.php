@@ -1,13 +1,5 @@
-<?php
-    require "Zoznam.php";
-    $zoznam = new Zoznam();
+<?php /** @var Array $data */ ?>
 
-    if (isset($_POST['nazov'])){
-        $zoznam->prdajPolozku($_POST['nazov'], $_POST['popis'], $_POST['obrazok']);
-    }
-
-    $polozky = $zoznam->getAll();
-?>
 <style>
     <?php
         include 'izboveRastliny.css';
@@ -36,10 +28,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../semPraca/flora.php">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="izboveRastliny.php">Izbove rastliny </a>
+                    <a class="nav-link " href="?c=flora">Izbove rastliny </a>
                 </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
@@ -48,21 +40,31 @@
             </form>
         </div>
     </nav>
-<a class="nav-link" href="databaza.php" >Pridaj</a>
 
-<?php foreach ($polozky as $polozka) { ?>
-    <div class="container marketing">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-4">
-                <img src="<?=$polozka->getObrazok()?>" alt="obr">
-                <h2><?=$polozka->getNazov()?></h2>
-                <p><?=$polozka->getPopis()?></p>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            <div class="col">
+                <a href="?c=flora&a=pridaj" class="btn btn-primary btn-sm">Pridaj</a>
+                <?php
+                /** @var \App\Models\Polozka $polozka */
+
+                foreach ($data['polozka'] as $polozka) { ?>
+                    <div class="container marketing">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img src="<?= $polozka->getObrazok() ?>" alt="obr">
+                                <h2><?= $polozka->getNazov() ?></h2>
+                                <p><?= $polozka->getPopis() ?></p>
+                                <a href="databaza.php&&nazov=<?= $polozka->getNazov() ?>"
+                                   class="btn btn-primary btn-sm">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php } ?>
             </div>
         </div>
     </div>
-<?php } ?>
 
 </body>
 </html>
