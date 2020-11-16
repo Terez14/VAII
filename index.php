@@ -7,5 +7,3 @@ require "ClassLoader.php";
 $app = new App();
 $app->run();
 ?>
-
-

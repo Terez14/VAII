@@ -25,4 +25,19 @@ class FloraController extends AControllerBase
         }
         return [];
     }
+
+    public function edit() {
+        $id = $_GET['id'];
+        $polozka = new Polozka();
+        $polozka->getOne($id);
+        if(isset($_POST['nazov'])) {
+            $polozka->setNazov($_POST['nazov']);
+            $polozka->setPopis($_POST['popis']);
+            $polozka->setObrazok($_POST['obrazok']);
+            header("Location: ?c=flora");
+        }
+        return['polozka'=>$polozka];
+
+    }
+
 }

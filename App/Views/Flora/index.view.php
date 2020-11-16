@@ -55,8 +55,7 @@
                                 <img src="<?= $polozka->getObrazok() ?>" alt="obr">
                                 <h2><?= $polozka->getNazov() ?></h2>
                                 <p><?= $polozka->getPopis() ?></p>
-                                <a href="databaza.php&&nazov=<?= $polozka->getNazov() ?>"
-                                   class="btn btn-primary btn-sm">Edit</a>
+                                <a href="?c=flora&a=edit&id=<?= $polozka->getId() ?>" class="btn btn-primary btn-sm">Edit</a>
                             </div>
                         </div>
                     </div>

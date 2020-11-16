@@ -95,28 +95,23 @@ abstract class Model
      * @param $id
      * @throws \Exception
      */
-    static public function getOne($id)
+    public function getOne($id)
     {
         self::connect();
-        try {
-            $sql = "SELECT * FROM " . self::getTableName() . " WHERE id=$id";
-            $stmt = self::$db->prepare($sql);
-            $stmt->execute([$id]);
-            $model = $stmt->fetch();
-            if ($model) {
-                $data = array_fill_keys(self::getDbColumns(), null);
-                $tmpModel = new static();
-                foreach ($data as $key => $item) {
-                    $tmpModel->$key = $model[$key];
-                }
-                return $tmpModel;
-            } else {
-                throw new \Exception('Record not found!');
+        $sql = "SELECT * FROM " . self::getTableName() . " WHERE id=$id";
+        $stmt = self::$db->prepare($sql);
+        $stmt->execute([$id]);
+        $model = $stmt->fetch();
+        if ($model) {
+            $data = array_fill_keys(self::getDbColumns(), null);
+            foreach ($data as $key => $item) {
+                $this->$key = $model[$key];
             }
-        } catch (PDOException $e) {
-            throw new \Exception('Query failed: ' . $e->getMessage());
+        } else {
+            throw new \Exception('Model not found!');
         }
     }
+
 
     /**
      * Saves the current model to DB (if model id is set, updates it, else creates a new model)

@@ -6,7 +6,7 @@ namespace App\Models;
 use App\Core\Model;
 class Polozka extends Model
 {
-
+    protected $id;
     protected ?string $obrazok;
     protected ?string $nazov;
     protected ?string $popis;
@@ -24,6 +24,10 @@ class Polozka extends Model
         $this->popis = $popis;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
     /**
      * @return string
      */
@@ -65,11 +69,12 @@ class Polozka extends Model
 
     static public function setDbColumns()
     {
-        return['nazov', 'popis', 'obrazok'];
+        return['id', 'nazov', 'popis', 'obrazok'];
     }
 
     static public function setTableName()
     {
         return 'polozka';
     }
+
 }
