@@ -56,6 +56,7 @@
                                 <h2><?= $polozka->getNazov() ?></h2>
                                 <p><?= $polozka->getPopis() ?></p>
                                 <a href="?c=flora&a=edit&id=<?= $polozka->getId() ?>" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="?c=flora&a=zmaz&id=<?= $polozka->getId() ?>" class="btn btn-danger btn-sm">Zmaz</a>
                             </div>
                         </div>
                     </div>

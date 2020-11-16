@@ -40,4 +40,13 @@ class FloraController extends AControllerBase
 
     }
 
+    public function zmaz()
+    {
+        $id = $_GET['id'];
+        $polozka = new Polozka();
+        $polozka->getOne($id);
+        $polozka->delete();
+        header("Location: ?c=flora");
+        exit();
+    }
 }
