@@ -44,7 +44,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="?c=flora&a=pridaj" class="btn btn-primary btn-sm">Pridaj</a>
+                <a href="?c=flora&a=pridaj" class="btn btn-primary btn-sm">Pridaj polozku</a>
                 <?php
                 /** @var \App\Models\Polozka $polozka */
 

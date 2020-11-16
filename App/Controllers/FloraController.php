@@ -34,6 +34,7 @@ class FloraController extends AControllerBase
             $polozka->setNazov($_POST['nazov']);
             $polozka->setPopis($_POST['popis']);
             $polozka->setObrazok($_POST['obrazok']);
+            $polozka->save();
             header("Location: ?c=flora");
         }
         return['polozka'=>$polozka];
