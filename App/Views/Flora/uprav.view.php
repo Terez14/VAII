@@ -18,7 +18,7 @@ $polozka = $data['polozka'];
                 </div>
                 <div class="form-group">
                     <label>Adresa Obrazka</label>
-                    <textarea name="obrazok" class="form-control"><?=$polozka->getObrazok()?></textarea>
+                    <input type="text" name="obrazok" class="form-control" value="<?=$polozka->getObrazok()?>">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

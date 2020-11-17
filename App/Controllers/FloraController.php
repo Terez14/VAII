@@ -19,9 +19,13 @@ class FloraController extends AControllerBase
     public function pridaj()
     {
         if(isset($_POST['nazov'])) {
-            $polozka = new Polozka($_POST['nazov'], $_POST['popis'], $_POST['obrazok']);
-            $polozka->save();
-            header("Location: ?c=flora");
+            if ($_POST['nazov'] == null || $_POST['popis'] == null || $_POST['obrazok'] == null) {
+                $this->presmeruj();
+            } else {
+                $polozka = new Polozka($_POST['nazov'], $_POST['popis'], $_POST['obrazok']);
+                $polozka->save();
+                $this->presmeruj();
+            }
         }
         return [];
     }
@@ -31,11 +35,15 @@ class FloraController extends AControllerBase
         $polozka = new Polozka();
         $polozka->getOne($id);
         if(isset($_POST['nazov'])) {
-            $polozka->setNazov($_POST['nazov']);
-            $polozka->setPopis($_POST['popis']);
-            $polozka->setObrazok($_POST['obrazok']);
-            $polozka->save();
-            header("Location: ?c=flora");
+            if ($_POST['nazov'] == null || $_POST['popis'] == null || $_POST['obrazok'] == null) {
+                $this->presmeruj();
+            } else {
+                $polozka->setNazov($_POST['nazov']);
+                $polozka->setPopis($_POST['popis']);
+                $polozka->setObrazok($_POST['obrazok']);
+                $polozka->save();
+                $this->presmeruj();
+            }
         }
         return['polozka'=>$polozka];
 
@@ -47,7 +55,11 @@ class FloraController extends AControllerBase
         $polozka = new Polozka();
         $polozka->getOne($id);
         $polozka->delete();
-        header("Location: ?c=flora");
+        $this->presmeruj();
         exit();
+    }
+
+    public function presmeruj() {
+        header("Location: ?c=flora");
     }
 }
