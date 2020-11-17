@@ -26,7 +26,7 @@ class FloraController extends AControllerBase
         return [];
     }
 
-    public function edit() {
+    public function uprav() {
         $id = $_GET['id'];
         $polozka = new Polozka();
         $polozka->getOne($id);

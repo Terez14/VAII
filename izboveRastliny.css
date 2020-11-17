@@ -14,13 +14,16 @@ a img {
 
 img {
     width: 350px;
+    height: 300px;
 }
 
 h2 {
     text-align: center;
 }
 
-
+.container {
+    top: 50px;
+}
 p {
     color: black;
     font-size: medium;
