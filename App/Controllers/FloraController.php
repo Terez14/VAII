@@ -11,9 +11,8 @@ class FloraController extends AControllerBase
 
     public function index()
     {
-        return [
-            'polozka' => Polozka::getAll()
-        ];
+
+        return $this->html(['polozka' => Polozka::getAll()], 'index');
     }
 
     public function pridaj()
@@ -27,13 +26,11 @@ class FloraController extends AControllerBase
                 $this->presmeruj();
             }
         }
-        return [];
+        return $this->html([], 'pridaj');
     }
 
     public function uprav() {
-        $id = $_GET['id'];
-        $polozka = new Polozka();
-        $polozka->getOne($id);
+        $polozka = Polozka::getOne($_GET['id']);
         if(isset($_POST['nazov'])) {
             if ($_POST['nazov'] == null || $_POST['popis'] == null || $_POST['obrazok'] == null) {
                 $this->presmeruj();
@@ -45,16 +42,16 @@ class FloraController extends AControllerBase
                 $this->presmeruj();
             }
         }
-        return['polozka'=>$polozka];
+        return $this->html(['polozka'=>$polozka], 'uprav');
 
     }
 
     public function zmaz()
     {
-        $id = $_GET['id'];
-        $polozka = new Polozka();
-        $polozka->getOne($id);
-        $polozka->delete();
+        if(isset($_GET['id'])) {
+            $polozka = Polozka::getOne($_GET['id']);
+            $polozka->delete();
+        }
         $this->presmeruj();
         exit();
     }

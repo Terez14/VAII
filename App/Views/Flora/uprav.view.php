@@ -20,7 +20,7 @@ $polozka = $data['polozka'];
                     <label>Adresa Obrazka</label>
                     <input type="text" name="obrazok" class="form-control" value="<?=$polozka->getObrazok()?>">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Odosli</button>
             </form>
         </div>
     </div>

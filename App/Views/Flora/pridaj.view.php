@@ -14,7 +14,7 @@
                     <label>Adresa obrazka</label>
                     <input type="text" name="obrazok" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Odosli</button>
             </form>
         </div>
     </div>

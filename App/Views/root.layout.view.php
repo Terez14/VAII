@@ -14,18 +14,29 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="?c=pouzivatel" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true">Dropdown</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                        <li><a href="?c=pouzivatel&a=pridaj" class="btn btn-secondary btn-bg">Prihlasenie</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../semPraca/flora.php">Home</a>
+                    <a class="nav-link" href="?c=pouzivatel">Home</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link " href="?c=flora">Izbove rastliny </a>
                 </li>
+
             </ul>
             <form class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Hladaj" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Hladaj</button>
+
+                <a href="?c=pouzivatel&a=pridaj" class="btn btn-secondary btn-bg">Prihlasenie</a>
+                <a href="?c=pouzivatel&a=pridaj" class="btn btn-secondary btn-bg">Registracia</a>
+
             </form>
         </div>
     </nav>

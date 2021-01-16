@@ -9,42 +9,52 @@ namespace App\Core;
  */
 class Router
 {
+    private $controller;
+    private $controllerName;
+    private $action;
+
     public function processURL()
     {
         $fullControllerName = $this->getFullControllerName();
-        try {
-            $controller = new $fullControllerName();
-        } catch (\Exception $e) {
-            $controller = null;
-        }
-        $action = $this->getAction();
+        $this->controller = new $fullControllerName();
 
-        if (!method_exists($controller, $action)) {
-            http_response_code(404);
-            echo '404 Not Found';
-            die();
-        }
+        $this->controllerName = $this->getControllerName();
 
-        return ['controller' => $controller, 'action' => $action];
+        $this->action = $this->getAction();
     }
 
     /**
-     * Returns a controller instance of from an URL
-     * @return AControllerBase
+     * Returns a controller instance of from an URL (Home controller as default)
+     * @return string
      */
     public function getFullControllerName(): string
     {
-        $controllerName = empty(trim(@$_GET['c'])) ? "home" : trim($_GET['c']);
-        return 'App\Controllers\\' . $controllerName . "Controller";
-
+        return 'App\Controllers\\' . $this->getControllerName() . "Controller";
     }
 
     /**
-     * Returns an action name from an URL
+     * Returns a controller name from an URL (home controller action by default)
+     * @return string
+     */
+    public function getControllerName() : string
+    {
+            return empty(trim(@$_GET['c'])) ? "Home" : trim($_GET['c']);
+    }
+
+    /**
+     * Returns an action name from an URL (index action by default)
      * @return string
      */
     public function getAction(): string
     {
-        return (empty(trim(@$_GET['a'])) ? "Index" : $_GET['a']);
+        return (empty(trim(@$_GET['a'])) ? "index" : $_GET['a']);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getController()
+    {
+        return $this->controller;
     }
 }
