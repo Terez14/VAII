@@ -17,6 +17,9 @@ class Pouzivatel extends Model
      * Polozka constructor.
      * @param $login
      * @param $password
+     * @param $meno
+     * @param  $priezvisko
+     * @param $kontakt
      */
     public function __construct(?string $login = null, ?string $password = null, ?string $meno = null, ?string $priezvisko = null, ?string $kontakt = null)
     {
@@ -115,4 +118,5 @@ class Pouzivatel extends Model
     {
         return $this->meno;
     }
+
 }
