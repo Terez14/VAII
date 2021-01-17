@@ -2,7 +2,7 @@
 
 <style>
     <?php
-        include 'izboveRastliny.css';
+        include 'flora.css';
     ?>
 </style>
 
@@ -24,7 +24,7 @@
 
                 foreach ($data['polozka'] as $polozka) { ?>
                             <div class="col-lg-4">
-                                <img src="<?= $polozka->getObrazok() ?>" alt="obr">
+                                <img class="obrazok" src="<?= $polozka->getObrazok() ?>" alt="obr">
                                 <h2><?= $polozka->getNazov() ?></h2>
                                 <p><?= $polozka->getPopis() ?></p>
                                 <a href="?c=flora&a=uprav&id=<?= $polozka->getId() ?>" class="btn btn-primary btn-sm">Uprav</a>

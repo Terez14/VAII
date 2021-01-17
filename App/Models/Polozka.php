@@ -7,9 +7,9 @@ use App\Core\Model;
 class Polozka extends Model
 {
     protected $id;
-    protected ?string $obrazok;
-    protected ?string $nazov;
-    protected ?string $popis;
+    protected string $obrazok;
+    protected string $nazov;
+    protected string $popis;
 
     /**
      * Polozka constructor.
@@ -17,7 +17,7 @@ class Polozka extends Model
      * @param $popis
      * @param $obrazok
      */
-    public function __construct(?string $nazov = null, ?string $popis = null, ?string $obrazok = null)
+    public function __construct(string $nazov = "", string $popis = "", string $obrazok = "")
     {
         $this->obrazok = $obrazok;
         $this->nazov = $nazov;
@@ -31,12 +31,12 @@ class Polozka extends Model
     /**
      * @return string
      */
-    public function getObrazok(): ?string
+    public function getObrazok(): string
     {
         return $this->obrazok;
     }
 
-    public function setObrazok(?string $obrazok): void
+    public function setObrazok(string $obrazok): void
     {
         $this->obrazok = $obrazok;
     }
@@ -44,12 +44,12 @@ class Polozka extends Model
     /**
      * @return string
      */
-    public function getNazov(): ?string
+    public function getNazov(): string
     {
         return $this->nazov;
     }
 
-    public function setNazov(?string $nazov): void
+    public function setNazov(string $nazov): void
     {
         $this->nazov = $nazov;
     }
@@ -57,12 +57,12 @@ class Polozka extends Model
     /**
      * @return string
      */
-    public function getPopis(): ?string
+    public function getPopis(): string
     {
         return $this->popis;
     }
 
-    public function setPopis(?string $popis): void
+    public function setPopis(string $popis): void
     {
         $this->popis = $popis;
     }

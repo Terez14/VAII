@@ -8,7 +8,7 @@
                 </div>
                 <div class="form-group">
                     <label>Popis</label>
-                    <textarea name="popis" class="form-control"></textarea>
+                    <textarea name="popis" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
                     <label>Adresa obrazka</label>

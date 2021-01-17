@@ -36,7 +36,7 @@ class PouzivatelController extends AControllerBase
         if (isset($formData['submit'])) {
             $logged = $this->app->getAuth()->login($formData['login'], $formData['password']);
             if ($logged) {
-                return $this->redirect('?c=flora');
+                return $this->redirect('?c=pouzivatel');
             }
         }
 

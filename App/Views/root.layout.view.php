@@ -25,22 +25,25 @@
                     <a class="nav-link" href="?c=pouzivatel">Home</a>
                 </li>
                 <li class="nav-item active">
+                    <a class="nav-link " href="?c=recenzia">Recenzie</a>
+                </li>
+                <?php if ($auth->isLogged()) { ?>
+                <li class="nav-item active">
                     <a class="nav-link " href="?c=flora">Izbove rastliny </a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link " href="?c=pouzivatel&a=uprav">Osobne udaje</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link " href="?c=recenzie">Recenzie</a>
-                </li>
+                <?php }  ?>
             </ul>
             <?php if ($auth->isLogged()) { ?>
-                    <h5> Prihlásený používateľ: <?=$auth->getLoggedUser()->getLogin() ?></h5>
-                    <form class="form-inline mt-2 mt-md-0">
-                        <a href="?c=pouzivatel&a=odhlasit" class="btn btn-secondary btn-bg">Odhlasit</a>
-                    </form>
+                <h5> Prihlásený používateľ: <?=$auth->getLoggedUser()->getLogin() ?></h5>
+                <h5> ID: <?=$auth->getLoggedUser()->getId() ?></h5>
+                <form class="form-inline mt-2 mt-md-0">
+                    <a href="?c=pouzivatel&a=odhlasit" class="btn btn-secondary btn-bg">Odhlasit</a>
+                </form>
             <?php } else {?>
-             <form class="form-inline mt-2 mt-md-0">
+                <form class="form-inline mt-2 mt-md-0">
                 <a href="?c=pouzivatel&a=pridaj" class="btn btn-secondary btn-bg">Registracia</a>
             </form>
             <form class="form-inline mt-2 mt-md-0">

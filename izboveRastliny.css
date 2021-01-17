@@ -11,7 +11,10 @@ a img {
     width: 60px;
     height: 40px;
 }
-
+img {
+    width: 75%;
+    transform: translate(15%, 0);
+}
 img {
     width: 350px;
     height: 300px;
@@ -24,6 +27,7 @@ h2 {
 .container {
     top: 50px;
 }
+
 p {
     color: black;
     font-size: medium;

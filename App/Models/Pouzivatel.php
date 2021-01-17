@@ -7,11 +7,11 @@ use App\Core\Model;
 class Pouzivatel extends Model
 {
     protected $id;
-    protected ?string $password;
-    protected ?string $login;
-    protected ?string $meno;
-    protected ?string $priezvisko;
-    protected ?string $kontakt;
+    protected string $password;
+    protected string $login;
+    protected string $meno;
+    protected string $priezvisko;
+    protected string $kontakt;
 
     /**
      * Polozka constructor.
@@ -21,7 +21,7 @@ class Pouzivatel extends Model
      * @param  $priezvisko
      * @param $kontakt
      */
-    public function __construct(?string $login = "", ?string $password = "", ?string $meno = "", ?string $priezvisko = "", ?string $kontakt = "")
+    public function __construct(string $login = "", string $password = "", string $meno = "", string $priezvisko = "", string $kontakt = "")
     {
         $this->meno = $meno;
         $this->priezvisko = $priezvisko;
@@ -37,12 +37,12 @@ class Pouzivatel extends Model
     /**
      * @return string
      */
-    public function getPassword(): ?string
+    public function getPassword(): string
     {
         return $this->password;
     }
 
-    public function setPassword(?string $password): void
+    public function setPassword(string $password): void
     {
         $this->password = $password;
     }
@@ -50,12 +50,12 @@ class Pouzivatel extends Model
     /**
      * @return string
      */
-    public function getLogin(): ?string
+    public function getLogin(): string
     {
         return $this->login;
     }
 
-    public function setLogin(?string $login): void
+    public function setLogin(string $login): void
     {
         $this->login = $login;
     }
@@ -74,7 +74,7 @@ class Pouzivatel extends Model
     /**
      * @return string|null
      */
-    public function getKontakt(): ?string
+    public function getKontakt(): string
     {
         return $this->kontakt;
     }
@@ -82,7 +82,7 @@ class Pouzivatel extends Model
     /**
      * @param string|null $meno
      */
-    public function setMeno(?string $meno): void
+    public function setMeno(string $meno): void
     {
         $this->meno = $meno;
     }
@@ -90,7 +90,7 @@ class Pouzivatel extends Model
     /**
      * @return string|null
      */
-    public function getPriezvisko(): ?string
+    public function getPriezvisko(): string
     {
         return $this->priezvisko;
     }
@@ -98,7 +98,7 @@ class Pouzivatel extends Model
     /**
      * @param string|null $priezvisko
      */
-    public function setPriezvisko(?string $priezvisko): void
+    public function setPriezvisko(string $priezvisko): void
     {
         $this->priezvisko = $priezvisko;
     }
@@ -106,7 +106,7 @@ class Pouzivatel extends Model
     /**
      * @param string|null $kontakt
      */
-    public function setKontakt(?string $kontakt): void
+    public function setKontakt(string $kontakt): void
     {
         $this->kontakt = $kontakt;
     }
@@ -114,7 +114,7 @@ class Pouzivatel extends Model
     /**
      * @return string|null
      */
-    public function getMeno(): ?string
+    public function getMeno(): string
     {
         return $this->meno;
     }
