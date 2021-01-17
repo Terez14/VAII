@@ -8,10 +8,13 @@ use App\Models\Polozka;
 
 class FloraController extends AControllerBase
 {
+    public function authorize($action)
+    {
+        return $this->app->getAuth()->isLogged();
+    }
 
     public function index()
     {
-
         return $this->html(['polozka' => Polozka::getAll()], 'index');
     }
 

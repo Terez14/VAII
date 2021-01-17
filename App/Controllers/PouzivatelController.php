@@ -54,6 +54,7 @@ class PouzivatelController extends AControllerBase
         return isset($_SESSION['pouzivatel']) && $_SESSION['pouzivatel'] != null;
     }
 
+
     public function uprav() {
 
         return $this->html([], 'uprav');

@@ -4,24 +4,26 @@
             <form method="post">
                 <div class="form-group">
                     <label>Meno</label>
-                    <input type="text" name="meno" class="form-control">
+                    <input type="text" name="meno" class="form-control "  required>
+
                 </div>
                 <div class="form-group">
                     <label>Priezvisko</label>
-                    <input type="text" name="priezvisko" class="form-control">
+                    <input type="text" name="priezvisko" class="form-control "  required>
+
                 </div>
                 <div class="form-group">
-                    <label>Kontakt</label>
-                    <input type="text" name="kontakt" class="form-control">
+                        <label >Email</label>
+                        <input type="email" name="kontakt" class="form-control " required>
                 </div>
                 <div class="form-group">
                     <label>login</label>
-                    <input type="text" name="login" class="form-control">
+                    <input type="text" name="login" class="form-control "  required>
                 </div>
 
                 <div class="form-group">
                     <label>heslo</label>
-                    <input type="password" name="password" class="form-control">
+                    <input type="password" name="password" class="form-control"  required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

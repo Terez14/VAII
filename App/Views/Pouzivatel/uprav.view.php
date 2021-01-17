@@ -3,7 +3,10 @@
 /** @var \App\Models\Pouzivatel $pouzivatel */
 
 ?>
-<div class="container">
+<style>
+    <?php include 'flora.css';?>
+</style>
+<div class="container formular">
     <div class="row">
         <div class="col">
             <form method="post">

@@ -10,7 +10,7 @@ $polozka = $data['polozka'];
             <form method="post">
                 <div class="form-group">
                     <label>Nazov</label>
-                    <input type="text" name="nazov" class="form-control" value="<?=$polozka->getNazov()?>">
+                    <input type="text" name="nazov" class="form-control" value="<?=$polozka->getNazov()?>" required>
                 </div>
                 <div class="form-group">
                     <label>Popis</label>
@@ -18,7 +18,7 @@ $polozka = $data['polozka'];
                 </div>
                 <div class="form-group">
                     <label>Adresa Obrazka</label>
-                    <input type="text" name="obrazok" class="form-control" value="<?=$polozka->getObrazok()?>">
+                    <input type="text" name="obrazok" class="form-control" value="<?=$polozka->getObrazok()?>"required>
                 </div>
                 <button type="submit" class="btn btn-primary">Odosli</button>
             </form>
