@@ -21,7 +21,7 @@ class Pouzivatel extends Model
      * @param  $priezvisko
      * @param $kontakt
      */
-    public function __construct(?string $login = null, ?string $password = null, ?string $meno = null, ?string $priezvisko = null, ?string $kontakt = null)
+    public function __construct(?string $login = "", ?string $password = "", ?string $meno = "", ?string $priezvisko = "", ?string $kontakt = "")
     {
         $this->meno = $meno;
         $this->priezvisko = $priezvisko;

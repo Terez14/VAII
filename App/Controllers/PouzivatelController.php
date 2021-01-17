@@ -4,6 +4,7 @@
 namespace App\Controllers;
 
 use App\Core\AControllerBase;
+use App\Core\Responses\JsonResponse;
 use App\Models\Polozka;
 use App\Models\Pouzivatel;
 class PouzivatelController extends AControllerBase
@@ -12,7 +13,7 @@ class PouzivatelController extends AControllerBase
     public function index()
     {
         return $this->html([], 'index');
-        session_start();
+
     }
 
     public function pridaj()
@@ -30,33 +31,27 @@ class PouzivatelController extends AControllerBase
     }
 
     public function prihlasenie() {
-        $data = [];
-        if(isset($_POST['login']) && isset($_POST['password'])) {
-            $pouzivatelia = Pouzivatel::getAll();
-            foreach ($pouzivatelia as $pouzivatel) {
-                if ($pouzivatel->getLogin() == $_POST['login']){
-                    if (password_verify($_POST['password'], $pouzivatel->getPassword())){
-                        $_SESSION['pouzivatel'] = $pouzivatel;
-                        $this->presmeruj();
-                        return $this->html($data, 'prihlasenie');
-                    } else {
-
-                        $data =  ['message' => 'Zle heslo!'];
-                        return $this->html($data, 'prihlasenie');
-                    }
-                }
+        $formData = $this->app->getRequest()->getPost();
+        $logged = null;
+        if (isset($formData['submit'])) {
+            $logged = $this->app->getAuth()->login($formData['login'], $formData['password']);
+            if ($logged) {
+                return $this->redirect('?c=flora');
             }
         }
-        $data =  ['message' => 'Zly login!'];
+
+        $data = ($logged === false ? ['message' => 'Zlý login alebo heslo!'] : []);
         return $this->html($data, 'prihlasenie');
     }
 
     public function odhlasit() {
-        if (isset($_SESSION["pouzivatel"])) {
-            unset($_SESSION["pouzivatel"]);
-            session_destroy();
-        }
+        $this->app->getAuth()->logout();
+
         return $this->html([], 'index');
+    }
+
+    public function jePrihlaseny() {
+        return isset($_SESSION['pouzivatel']) && $_SESSION['pouzivatel'] != null;
     }
 
     public function uprav() {
