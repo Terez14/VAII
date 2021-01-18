@@ -15,7 +15,12 @@ class FloraController extends AControllerBase
 
     public function index()
     {
-        return $this->html(['polozka' => Polozka::getAll()], 'index');
+        return $this->html();
+    }
+
+    public function polozky() {
+        $polozka = Polozka::getAll();
+        return $this->json($polozka);
     }
 
     public function pridaj()

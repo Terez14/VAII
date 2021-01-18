@@ -16,6 +16,8 @@ class RecenziaController extends AControllerBase
     {
         return $this->html();
     }
+
+
     public function pridaj()
     {
         if ($this->app->getAuth()->isLogged()) {
