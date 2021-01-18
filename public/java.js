@@ -1,4 +1,4 @@
-class Recenzia {
+class Polozka {
     constructor() {
         this.znovaNacitaj();
         setInterval(() => {
@@ -7,7 +7,7 @@ class Recenzia {
 
     }
 
-    async getKomentar() {
+    async getPolozka() {
         try {
             let respponse = await fetch("?c=flora&a=polozky");
             let data = await respponse.json();
@@ -31,15 +31,62 @@ class Recenzia {
         }
 
     }
+    async getRecenzia() {
+        try {
+            let respponse = await fetch("?c=recenzia&a=recenzie");
+            let data = await respponse.json();
+
+            let respponsee = await fetch("?c=pouzivatel&a=pouzivatelia");
+            let dataa = await respponsee.json();
+
+            console.log(data);
+            var recenzie = document.getElementById("recenzie");
+            var html = "";
+            let i;
+            i=0;
+            var x = document.getElementById("hodnota").value;
+            data.forEach((recen) => {
+                i++;
+                dataa.forEach((pouz) => {
+                    if (recen.pouzivatel_id === pouz.id) {
+                        if( x === "vsetko") {
+                            html+=`<tr>
+                     <th scope="row">${i}</th>
+                     <td>${pouz.meno}  ${pouz.priezvisko}</td>
+                     <td>${recen.komentar}</td>
+                     <td>${recen.znamka}</td>
+                     </tr>`;
+                        }
+                        if(recen.znamka === x ) {
+                            html+=`<tr>
+                     <th scope="row">${i}</th>
+                     <td>${pouz.meno}  ${pouz.priezvisko}</td>
+                     <td>${recen.komentar}</td>
+                     <td>${recen.znamka}</td>
+                     </tr>`;
+                        }
+
+                    }
+
+                });
+            });
+            console.log(html);
+            recenzie.innerHTML = html;
+        } catch (e) {
+            console.log('Chyba' + e.message);
+        }
+
+    }
 
     async znovaNacitaj() {
-        await this.getKomentar();
+        await this.getRecenzia();
+        await this.getPolozka();
     }
 }
-var recenzia;
+var polozka;
 
 document.addEventListener(
     'DOMContentLoaded', () => {
-        recenzia = new Recenzia();
+        polozka = new Polozka();
     }, false)
 ;

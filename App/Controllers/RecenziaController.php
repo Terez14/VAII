@@ -6,7 +6,6 @@ namespace App\Controllers;
 
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
-use App\Models\Polozka;
 use App\Models\Recenzia;
 
 class RecenziaController extends AControllerBase
@@ -17,6 +16,10 @@ class RecenziaController extends AControllerBase
         return $this->html();
     }
 
+    public function recenzie() {
+        $recenzie = Recenzia::getAll();
+        return $this->json($recenzie);
+    }
 
     public function pridaj()
     {

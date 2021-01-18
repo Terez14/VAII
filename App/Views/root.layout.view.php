@@ -19,6 +19,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav mr-auto">
 
@@ -38,22 +39,18 @@
                 <?php }  ?>
             </ul>
             <?php if ($auth->isLogged()) { ?>
+                <div>
                 <h4> Prihlásený používateľ: <?=$auth->getLoggedUser()->getLogin() ?></h4>
-
-                <form class="form-inline mt-2 mt-md-0">
-                    <a href="?c=pouzivatel&a=odhlasit" class="btn btn-secondary btn-bg">Odhlasit</a>
-                </form>
+                <a href="?c=pouzivatel&a=odhlasit" class="btn btn-secondary btn-bg">Odhlasit</a>
+                </div>
             <?php } else {?>
-                <form class="form-inline mt-2 mt-md-0">
-                <a href="?c=pouzivatel&a=pridaj" class="btn btn-secondary btn-bg">Registracia</a>
-            </form>
-            <form class="form-inline mt-2 mt-md-0">
-                <a href="?c=pouzivatel&a=prihlasenie" class="btn btn-secondary btn-bg">Prihlasenie</a>
-            </form>
+                <div>
+                    <a href="?c=pouzivatel&a=pridaj" class="btn btn-success btn-bg">Registracia</a>
+                    <a href="?c=pouzivatel&a=prihlasenie" class="btn btn-success btn-bg">Prihlasenie</a>
+                </div>
             <?php }  ?>
         </div>
     </nav>
-
     <div class="web-content">
         <?= $contentHTML ?>
     </div>

@@ -1,10 +1,4 @@
 
-<style>
-    <?php include 'flora.css';?>
-</style>
-
-
-
 <div class="obsah">
     <h1>Flóra</h1>
     <img class="obr" src="https://www.rajec.com/files/Images/flora.jpg" alt="obrazok">

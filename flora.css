@@ -31,6 +31,7 @@ h2 {
 .obrazok {
     width: 350px;
     height: 300px;
+
 }
 .obr {
     width: 75%;
@@ -62,6 +63,9 @@ label {
     font-style: revert;
 }
 
+.filter {
+    text-align: right;
+}
 
 
 

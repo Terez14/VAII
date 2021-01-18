@@ -16,6 +16,10 @@ class PouzivatelController extends AControllerBase
 
     }
 
+    public function pouzivatelia() {
+        $pouzivatelia = Pouzivatel::getAll();
+        return $this->json($pouzivatelia);
+    }
 
     public function pridaj()
     {
