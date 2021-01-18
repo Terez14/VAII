@@ -77,10 +77,35 @@ class Polozka {
         }
 
     }
+    async getRegistrovany() {
+        try {
+            let respponsee = await fetch("?c=pouzivatel&a=pouzivatelia");
+            let dataa = await respponsee.json();
+
+            var registrovany = document.getElementById("registrovany");
+            var html = "";
+            var i = 0;
+                dataa.forEach((pouz) => {
+                    i++;
+                            html+=`<tr>
+                     <th scope="row">${i}</th>
+                     <td>${pouz.meno}  ${pouz.priezvisko}</td>
+                     <td>${pouz.kontakt}</td>
+                     <td>${pouz.login}</td>
+                     </tr>`;
+                });
+            console.log(html);
+            registrovany.innerHTML = html;
+        } catch (e) {
+            console.log('Chyba' + e.message);
+        }
+
+    }
 
     async znovaNacitaj() {
         await this.getRecenzia();
         await this.getPolozka();
+        await this.getRegistrovany();
     }
 }
 var polozka;

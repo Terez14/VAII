@@ -30,17 +30,25 @@
                     <a class="nav-link " href="?c=recenzia">Recenzie</a>
                 </li>
                 <?php if ($auth->isLogged()) { ?>
-                <li class="nav-item active">
-                    <a class="nav-link " href="?c=flora">Izbove rastliny </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link " href="?c=pouzivatel&a=uprav">Osobne udaje</a>
-                </li>
+                    <li class="nav-item active">
+                        <a class="nav-link " href="?c=flora">Izbove rastliny </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link " href="?c=pouzivatel&a=osUdaje">Osobne udaje</a>
+                    </li>
+                <?php } ?>
+
+                <?php if($auth->isLogged() && $auth->getLoggedUser()->getJeAdmin()=="1") {?>
+                    <li class="nav-item active">
+                        <a class="nav-link " href="?c=pouzivatel&a=vsetci">Pouzivatelia</a>
+                    </li>
+
                 <?php }  ?>
+
             </ul>
             <?php if ($auth->isLogged()) { ?>
                 <div>
-                <h4> Prihlásený používateľ: <?=$auth->getLoggedUser()->getLogin() ?></h4>
+                <h4> Prihlásený používateľ: <?=$auth->getLoggedUser()->getMeno()?> <?=$auth->getLoggedUser()->getPriezvisko()?></h4>
                 <a href="?c=pouzivatel&a=odhlasit" class="btn btn-secondary btn-bg">Odhlasit</a>
                 </div>
             <?php } else {?>

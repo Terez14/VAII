@@ -57,7 +57,7 @@ class DBAuthenticator extends AAuthenticator
 
     /**
      * Get an instance of the logged in user
-     * @return User
+     * @return Pouzivatel
      */
     function getLoggedUser(): Pouzivatel
     {

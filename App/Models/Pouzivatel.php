@@ -12,6 +12,7 @@ class Pouzivatel extends Model
     protected string $meno;
     protected string $priezvisko;
     protected string $kontakt;
+    protected $jeAdmin;
 
     /**
      * Polozka constructor.
@@ -21,8 +22,9 @@ class Pouzivatel extends Model
      * @param  $priezvisko
      * @param $kontakt
      */
-    public function __construct(string $login = "", string $password = "", string $meno = "", string $priezvisko = "", string $kontakt = "")
+    public function __construct(string $login = "", string $password = "", string $meno = "", string $priezvisko = "", string $kontakt = "", $jeAdmin="")
     {
+        $this->jeAdmin=$jeAdmin;
         $this->meno = $meno;
         $this->priezvisko = $priezvisko;
         $this->kontakt = $kontakt;
@@ -63,7 +65,7 @@ class Pouzivatel extends Model
 
     static public function setDbColumns()
     {
-        return['id', 'login', 'password', 'meno', 'priezvisko', 'kontakt'];
+        return['id', 'login', 'password', 'meno', 'priezvisko', 'kontakt', 'jeAdmin'];
     }
 
     static public function setTableName()
@@ -117,6 +119,22 @@ class Pouzivatel extends Model
     public function getMeno(): string
     {
         return $this->meno;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function getJeAdmin()
+    {
+        return $this->jeAdmin;
+    }
+
+    /**
+     * @param mixed|string $jeAdmin
+     */
+    public function setJeAdmin($jeAdmin): void
+    {
+        $this->jeAdmin = $jeAdmin;
     }
 
 }

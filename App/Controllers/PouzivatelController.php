@@ -21,12 +21,36 @@ class PouzivatelController extends AControllerBase
         return $this->json($pouzivatelia);
     }
 
+    public function vsetci()
+    {
+        if ($this->app->getAuth()->isLogged()&& $this->app->getAuth()->getLoggedUser()->getJeAdmin()=="1") {
+            return $this->html();
+        } else {
+            $this->presmeruj();
+        }
+    }
+
+    public function osUdaje() {
+        if ($this->app->getAuth()->isLogged()) {
+            return $this->html();
+        } else {
+            $this->presmeruj();
+        }
+    }
+
     public function pridaj()
     {
         $data=[];
         if(isset($_POST['meno'])) {
+            $pouzivatelia = Pouzivatel::getAll();
+            foreach ($pouzivatelia as $pouzivatel) {
+                if ($pouzivatel->getLogin() == $_POST['login']) {
+                    $data = ['message' => 'Login uz existuje!'];
+                    return $this->html($data, 'pridaj');
+                }
+            }
             if ($_POST['passwordRaz'] ==  $_POST['passwordDva'] ) {
-                $pouzivatel = new Pouzivatel($_POST['login'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['meno'], $_POST['priezvisko'], $_POST['kontakt']);
+                $pouzivatel = new Pouzivatel($_POST['login'], password_hash($_POST['passwordRaz'], PASSWORD_DEFAULT), $_POST['meno'], $_POST['priezvisko'], $_POST['kontakt'], "0");
                 $pouzivatel->save();
                 $data = [];
                 $this->presmeruj();
@@ -66,6 +90,12 @@ class PouzivatelController extends AControllerBase
         $data=[];
         if ($this->app->getAuth()->isLogged()) {
             if(isset($_POST['meno'])) {
+                $pouzivatelia = Pouzivatel::getAll();
+                foreach ($pouzivatelia as $pouzivatel) {
+                    if ($pouzivatel->getLogin() == $_POST['login']) {
+                        $data = ['message' => 'Login uz existuje!'];
+                    }
+                }
                 $this->app->getAuth()->getLoggedUser()->setMeno($_POST['meno']);
                 $this->app->getAuth()->getLoggedUser()->setPriezvisko($_POST['priezvisko']);
                 $this->app->getAuth()->getLoggedUser()->setKontakt($_POST['kontakt']);

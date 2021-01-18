@@ -28,12 +28,13 @@
     <?php } ?>
     <div class="filter">
         <select class="form-select form-select-lg mb-3" aria-label="Default select example" id="hodnota">
-            <option value="vsetko">vsetko</option>
+            <option value="vsetko" selected>vsetko</option>
             <option value=":(">:(</option>
             <option value="*">*</option>
-            <option value="**"selected>**</option>
+            <option value="**">**</option>
             <option value="***">***</option>
             <option value="****">****</option>
             <option value="*****" >*****</option>
         </select>
+</div>
 </div>
