@@ -1,16 +1,3 @@
-<?php /** @var Array $data */ ?>
-
-<style>
-    <?php
-        include 'flora.css';
-    ?>
-</style>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Izbové rastliny</title>
-</head>
 
 <body>
     <div class="container">

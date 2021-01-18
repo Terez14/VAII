@@ -16,18 +16,21 @@ class PouzivatelController extends AControllerBase
 
     }
 
+
     public function pridaj()
     {
+        $data=[];
         if(isset($_POST['meno'])) {
-            if ($_POST['login'] == null || $_POST['password'] == null) {
-                $this->presmeruj();
-            } else {
+            if ($_POST['passwordRaz'] ==  $_POST['passwordDva'] ) {
                 $pouzivatel = new Pouzivatel($_POST['login'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['meno'], $_POST['priezvisko'], $_POST['kontakt']);
                 $pouzivatel->save();
+                $data = [];
                 $this->presmeruj();
+            } else {
+                $data = ['message' => 'Hesla sa nezhoduju!'];
             }
         }
-        return $this->html([], 'pridaj');
+        return $this->html($data, 'pridaj');
     }
 
     public function prihlasenie() {
@@ -56,8 +59,27 @@ class PouzivatelController extends AControllerBase
 
 
     public function uprav() {
-
-        return $this->html([], 'uprav');
+        $data=[];
+        if ($this->app->getAuth()->isLogged()) {
+            if(isset($_POST['meno'])) {
+                $this->app->getAuth()->getLoggedUser()->setMeno($_POST['meno']);
+                $this->app->getAuth()->getLoggedUser()->setPriezvisko($_POST['priezvisko']);
+                $this->app->getAuth()->getLoggedUser()->setKontakt($_POST['kontakt']);
+                $this->app->getAuth()->getLoggedUser()->setLogin($_POST['login']);
+                $this->app->getAuth()->getLoggedUser()->save();
+                $logged = $this->app->getAuth()->login($this->app->getAuth()->getLoggedUser()->getLogin(), $_POST['passwordStare']);
+                if ($logged) {
+                    $this->app->getAuth()->getLoggedUser()->setPassword(password_hash($_POST['passwordNove'], PASSWORD_DEFAULT));
+                    $this->app->getAuth()->getLoggedUser()->save();
+                    $data = [];
+                    $this->presmeruj();
+                }
+                else {
+                    $data = ['message' => 'Nespravne zadane stare heslo!'];
+                }
+            }
+        }
+        return $this->html($data, 'uprav');
     }
 
     public function presmeruj() {
