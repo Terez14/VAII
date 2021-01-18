@@ -2,7 +2,7 @@
 
 namespace App\Config;
 
-use App\Auth\DBAuthenticator;
+use App\Auth\DBPrihlasovanie;
 
 /**
  * Class Configuration
@@ -21,5 +21,5 @@ class Configuration
     public const ROOT_LAYOUT = 'root.layout.view.php';
 
     public const DEBUG_QUERY = false;
-    public const AUTH_CLASS = DBAuthenticator::class;
+    public const AUTH_CLASS = DBPrihlasovanie::class;
 }

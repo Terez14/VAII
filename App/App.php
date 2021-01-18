@@ -3,7 +3,7 @@
 namespace App;
 
 use App\Config\Configuration;
-use App\Core\AAuthenticator;
+use App\Core\APrihlasovanie;
 use App\Core\DB\Connection;
 use App\Core\Request;
 use App\Core\Responses\RedirectResponse;
@@ -26,7 +26,7 @@ class App
      */
     private Request $request;
 
-    private ?AAuthenticator $auth;
+    private ?APrihlasovanie $auth;
 
     /**
      * App constructor
@@ -102,9 +102,9 @@ class App
     }
 
     /**
-     * @return AAuthenticator|null
+     * @return APrihlasovanie|null
      */
-    public function getAuth(): ?AAuthenticator
+    public function getAuth(): ?APrihlasovanie
     {
         return $this->auth;
     }

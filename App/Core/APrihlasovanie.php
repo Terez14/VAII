@@ -4,17 +4,17 @@ namespace App\Core;
 
 use App\Models\Pouzivatel;
 
-abstract class AAuthenticator
+abstract class APrihlasovanie
 {
     protected static $instance;
 
-    static public function getInstance(): AAuthenticator
+    static public function getInstance(): APrihlasovanie
     {
 
-        if (AAuthenticator::$instance == null) {
-            AAuthenticator::$instance = new static();
+        if (APrihlasovanie::$instance == null) {
+            APrihlasovanie::$instance = new static();
         }
-        return AAuthenticator::$instance;
+        return APrihlasovanie::$instance;
     }
 
     abstract function login($userLogin, $pass);

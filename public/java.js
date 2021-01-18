@@ -1,4 +1,4 @@
-class Polozka {
+class Polozky {
     constructor() {
         this.znovaNacitaj();
         setInterval(() => {
@@ -15,14 +15,23 @@ class Polozka {
             console.log(data);
             var polozky = document.getElementById("polozky");
             var html = "";
+            var id = document.getElementById("id").value;
             data.forEach((poloz) => {
-                html+=`<div class="col-lg-4">
+                if (id === poloz.pouzivatel_id) {
+                    html+=`<div class="col-lg-4">
                 <img class="obrazok" src="${poloz.obrazok}" alt="obr">
                 <h2 class="nazov">${poloz.nazov}</h2>
                 <p>${poloz.popis}</p>
                 <a href="?c=flora&a=uprav&id=${poloz.id}" class="btn btn-primary btn-sm">Uprav</a>
                 <a href="?c=flora&a=zmaz&id=${poloz.id}" class="btn btn-danger btn-sm">Zmaz</a>
                 </div>`;
+                } else {
+                html+=`<div class="col-lg-4">
+                <img class="obrazok" src="${poloz.obrazok}" alt="obr">
+                <h2 class="nazov">${poloz.nazov}</h2>
+                <p>${poloz.popis}</p>
+                </div>`;
+                }
             });
             console.log(html);
             polozky.innerHTML = html;
@@ -49,21 +58,13 @@ class Polozka {
                 i++;
                 dataa.forEach((pouz) => {
                     if (recen.pouzivatel_id === pouz.id) {
-                        if( x === "vsetko") {
+                        if( x === "vsetko" || recen.znamka === x ) {
                             html+=`<tr>
-                     <th scope="row">${i}</th>
-                     <td>${pouz.meno}  ${pouz.priezvisko}</td>
-                     <td>${recen.komentar}</td>
-                     <td>${recen.znamka}</td>
-                     </tr>`;
-                        }
-                        if(recen.znamka === x ) {
-                            html+=`<tr>
-                     <th scope="row">${i}</th>
-                     <td>${pouz.meno}  ${pouz.priezvisko}</td>
-                     <td>${recen.komentar}</td>
-                     <td>${recen.znamka}</td>
-                     </tr>`;
+                            <th scope="row">${i}</th>
+                            <td>${pouz.meno}  ${pouz.priezvisko}</td>
+                            <td>${recen.komentar}</td>
+                            <td>${recen.znamka}</td>
+                            </tr>`;
                         }
 
                     }
@@ -112,6 +113,6 @@ var polozka;
 
 document.addEventListener(
     'DOMContentLoaded', () => {
-        polozka = new Polozka();
+        polozka = new Polozky();
     }, false)
 ;

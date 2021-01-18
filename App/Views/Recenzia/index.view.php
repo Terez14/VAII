@@ -1,12 +1,13 @@
 
 <?php
 /** @var Array $data */
-/** @var \App\Core\AAuthenticator $auth */
+/** @var \App\Core\APrihlasovanie $auth */
 ?>
 
 <div class="container" >
     <div class="recenzia">
         <div class="bd-example">
+            <h3>Recenzie stranky</h3>
         <table class="table table-striped">
             <thead>
             <tr>

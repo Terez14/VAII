@@ -1,6 +1,6 @@
 <?php
 /** @var Array $data */
-/** @var \App\Core\AAuthenticator $auth */
+/** @var \App\Core\APrihlasovanie $auth */
 
 ?>
 <div class="container formular">
@@ -34,7 +34,7 @@
                     <label>nove heslo</label>
                     <input type="password" name="passwordNove" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-success">Odosli</button>
             </form>
         </div>
     </div>

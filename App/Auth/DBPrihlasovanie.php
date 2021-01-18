@@ -2,18 +2,13 @@
 
 namespace App\Auth;
 
-use App\Core\AAuthenticator;
+use App\Core\APrihlasovanie;
 use App\Models\Pouzivatel;
 
-/**
- * Class DBAuthenticator
- * @package App\Auth
- */
-class DBAuthenticator extends AAuthenticator
+
+class DBPrihlasovanie extends APrihlasovanie
 {
-    /**
-     * DBAuthenticator constructor
-     */
+
     public function __construct()
     {
         session_start();
@@ -43,9 +38,7 @@ class DBAuthenticator extends AAuthenticator
         }
     }
 
-    /**
-     * Logout the user
-     */
+
     function logout()
     {
         if (isset($_SESSION["pouzivatel"])) {
@@ -56,7 +49,6 @@ class DBAuthenticator extends AAuthenticator
 
 
     /**
-     * Get an instance of the logged in user
      * @return Pouzivatel
      */
     function getLoggedUser(): Pouzivatel
@@ -65,7 +57,6 @@ class DBAuthenticator extends AAuthenticator
     }
 
     /**
-     * Return if the user is authenticated or not
      * @return bool
      */
     function isLogged()

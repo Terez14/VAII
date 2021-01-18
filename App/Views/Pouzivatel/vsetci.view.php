@@ -1,5 +1,6 @@
 <div class="container" >
     <div class="registrovany">
+        <h3>Registrovany pouzivatelia</h3>
         <div class="bd-example">
             <table class="table table-dark">
                 <thead>

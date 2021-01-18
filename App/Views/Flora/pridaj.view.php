@@ -1,4 +1,4 @@
-<div class="container formular">
+<div class="container pridaj">
     <div class="row">
         <div class="col">
             <form method="post">

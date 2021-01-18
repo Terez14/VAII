@@ -1,6 +1,6 @@
 <?php
 /** @var string $contentHTML */
-/** @var \App\Core\AAuthenticator $auth */
+/** @var \App\Core\APrihlasovanie $auth */
 ?>
 <html>
     <head>
@@ -36,11 +36,12 @@
                     <li class="nav-item active">
                         <a class="nav-link " href="?c=pouzivatel&a=osUdaje">Osobne udaje</a>
                     </li>
+
                 <?php } ?>
 
                 <?php if($auth->isLogged() && $auth->getLoggedUser()->getJeAdmin()=="1") {?>
                     <li class="nav-item active">
-                        <a class="nav-link " href="?c=pouzivatel&a=vsetci">Pouzivatelia</a>
+                        <a class="nav-link " href="?c=pouzivatel&a=vsetci" >Pouzivatelia</a>
                     </li>
 
                 <?php }  ?>

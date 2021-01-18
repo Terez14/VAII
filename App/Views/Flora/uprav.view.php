@@ -4,7 +4,7 @@
 $polozka = $data['polozka'];
 ?>
 
-<div class="container">
+<div class="container formular">
     <div class="row">
         <div class="col">
             <form method="post">
