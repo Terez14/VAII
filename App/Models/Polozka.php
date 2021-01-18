@@ -7,6 +7,7 @@ use App\Core\Model;
 class Polozka extends Model
 {
     protected $id;
+    protected $pouzivatel_id;
     protected string $obrazok;
     protected string $nazov;
     protected string $popis;
@@ -17,8 +18,9 @@ class Polozka extends Model
      * @param $popis
      * @param $obrazok
      */
-    public function __construct(string $nazov = "", string $popis = "", string $obrazok = "")
+    public function __construct($pouzivatel_id = "",string $nazov = "", string $popis = "", string $obrazok = "")
     {
+        $this->pouzivatel_id = $pouzivatel_id;
         $this->obrazok = $obrazok;
         $this->nazov = $nazov;
         $this->popis = $popis;
@@ -69,12 +71,28 @@ class Polozka extends Model
 
     static public function setDbColumns()
     {
-        return['id', 'nazov', 'popis', 'obrazok'];
+        return['id','pouzivatel_id', 'nazov', 'popis', 'obrazok'];
     }
 
     static public function setTableName()
     {
         return 'polozka';
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPouzivatelId()
+    {
+        return $this->pouzivatel_id;
+    }
+
+    /**
+     * @param mixed $pouzivatel_id
+     */
+    public function setPouzivatelId($pouzivatel_id): void
+    {
+        $this->pouzivatel_id = $pouzivatel_id;
     }
 
 }

@@ -20,9 +20,12 @@
                             <input name="password" type="password" id="password" class="form-control"
                                    placeholder="password" required>
                         </div>
-                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="submit">Prihlásiť
-                        </button>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="submit">Prihlásiť</button>
+
+
                     </form>
+                    <p>Ak nie ste zaregistrovany zaregistrujte sa <a href="?c=pouzivatel&a=pridaj">Registracia</a></p>
+
                 </div>
             </div>
         </div>

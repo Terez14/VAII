@@ -46,7 +46,7 @@ class PouzivatelController extends AControllerBase
 
     public function odhlasit() {
         $this->app->getAuth()->logout();
-
+        $this->presmeruj();
         return $this->html([], 'index');
     }
 

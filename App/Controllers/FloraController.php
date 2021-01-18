@@ -20,11 +20,10 @@ class FloraController extends AControllerBase
 
     public function pridaj()
     {
-        if(isset($_POST['nazov'])) {
-            if ($_POST['nazov'] == null || $_POST['popis'] == null || $_POST['obrazok'] == null) {
-                $this->presmeruj();
-            } else {
-                $polozka = new Polozka($_POST['nazov'], $_POST['popis'], $_POST['obrazok']);
+        if ($this->app->getAuth()->isLogged()) {
+            if (isset($_POST['nazov'])) {
+
+                $polozka = new Polozka($this->app->getAuth()->getLoggedUser()->getId(), $_POST['nazov'], $_POST['popis'], $_POST['obrazok']);
                 $polozka->save();
                 $this->presmeruj();
             }

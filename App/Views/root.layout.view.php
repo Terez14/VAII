@@ -37,8 +37,8 @@
                 <?php }  ?>
             </ul>
             <?php if ($auth->isLogged()) { ?>
-                <h5> Prihlásený používateľ: <?=$auth->getLoggedUser()->getLogin() ?></h5>
-                <h5> ID: <?=$auth->getLoggedUser()->getId() ?></h5>
+                <h4> Prihlásený používateľ: <?=$auth->getLoggedUser()->getLogin() ?></h4>
+
                 <form class="form-inline mt-2 mt-md-0">
                     <a href="?c=pouzivatel&a=odhlasit" class="btn btn-secondary btn-bg">Odhlasit</a>
                 </form>

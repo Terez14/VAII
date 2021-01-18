@@ -18,14 +18,44 @@ class RecenziaController extends AControllerBase
     }
     public function pridaj()
     {
-        if(isset($_POST['komentar'])) {
-            if ($this->app->getAuth()->isLogged()) {
-                $recenzia = new Recenzia($this->app->getAuth()->getLoggedUser()->getId(), $_POST['komentar'], $_POST['znamka']);
-                $recenzia->save();
-                $this->presmeruj();
+        if ($this->app->getAuth()->isLogged()) {
+
+            if (isset($_POST['komentar'])) {
+                    if($_POST['znamka'] == 1) {
+                        $recenzia = new Recenzia($this->app->getAuth()->getLoggedUser()->getId(), $_POST['komentar'], ":(");
+                        $recenzia->save();
+                        $this->presmeruj();
+                    } else if ($_POST['znamka'] == 1){
+                        $recenzia = new Recenzia($this->app->getAuth()->getLoggedUser()->getId(), $_POST['komentar'], "*");
+                        $recenzia->save();
+                        $this->presmeruj();
+                    } else if ($_POST['znamka'] == 1){
+                        $recenzia = new Recenzia($this->app->getAuth()->getLoggedUser()->getId(), $_POST['komentar'], "**");
+                        $recenzia->save();
+                        $this->presmeruj();
+                    }  else if ($_POST['znamka'] == 1){
+                        $recenzia = new Recenzia($this->app->getAuth()->getLoggedUser()->getId(), $_POST['komentar'], "***");
+                        $recenzia->save();
+                        $this->presmeruj();
+                    }  else if ($_POST['znamka'] == 1){
+                        $recenzia = new Recenzia($this->app->getAuth()->getLoggedUser()->getId(), $_POST['komentar'], "****");
+                        $recenzia->save();
+                        $this->presmeruj();
+                    }  else if ($_POST['znamka'] == 1){
+                        $recenzia = new Recenzia($this->app->getAuth()->getLoggedUser()->getId(), $_POST['komentar'], "*****");
+                        $recenzia->save();
+                        $this->presmeruj();
+                    }  else {
+                        $recenzia = new Recenzia($this->app->getAuth()->getLoggedUser()->getId(), $_POST['komentar'], "zle");
+                        $recenzia->save();
+                        $this->presmeruj();
+                    }
             }
+            return $this->html([], 'pridaj');
+        } else {
+            $this->presmeruj();
         }
-        return $this->html([], 'pridaj');
+
     }
     public function presmeruj() {
         header("Location: ?c=recenzia");
