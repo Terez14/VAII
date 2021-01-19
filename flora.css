@@ -112,3 +112,8 @@ label {
     font-style: oblique;
     font-size: large;
 }
+.prihlas {
+    background-color: lightgreen;
+    border: 4px solid darkgreen;
+
+}

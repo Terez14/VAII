@@ -5,6 +5,9 @@
     <div class="row">
         <div class="col">
             <form method="post">
+                <div class="text-center text-danger mb-3">
+                    <?= @$data['message'] ?>
+                </div>
                 <div class="form-group">
                     <label>Meno</label>
                     <input type="text" name="meno" class="form-control "  required>
@@ -23,9 +26,7 @@
                     <label>login</label>
                     <input type="text" name="login" class="form-control "  required>
                 </div>
-                <div class="text-center text-danger mb-3">
-                    <?= @$data['message'] ?>
-                </div>
+
                 <div class="form-group">
                     <label>Heslo</label>
                     <input type="password" name="passwordRaz" class="form-control"  required>

@@ -11,8 +11,6 @@ class Polozky {
         try {
             let respponse = await fetch("?c=flora&a=polozky");
             let data = await respponse.json();
-
-            console.log(data);
             var polozky = document.getElementById("polozky");
             var html = "";
             var id = document.getElementById("id").value;
@@ -33,7 +31,6 @@ class Polozky {
                 </div>`;
                 }
             });
-            console.log(html);
             polozky.innerHTML = html;
         } catch (e) {
             console.log('Chyba' + e.message);
@@ -48,7 +45,6 @@ class Polozky {
             let respponsee = await fetch("?c=pouzivatel&a=pouzivatelia");
             let dataa = await respponsee.json();
 
-            console.log(data);
             var recenzie = document.getElementById("recenzie");
             var html = "";
             let i;
@@ -71,7 +67,6 @@ class Polozky {
 
                 });
             });
-            console.log(html);
             recenzie.innerHTML = html;
         } catch (e) {
             console.log('Chyba' + e.message);
@@ -95,7 +90,6 @@ class Polozky {
                      <td>${pouz.login}</td>
                      </tr>`;
                 });
-            console.log(html);
             registrovany.innerHTML = html;
         } catch (e) {
             console.log('Chyba' + e.message);

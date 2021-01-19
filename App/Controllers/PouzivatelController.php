@@ -49,7 +49,9 @@ class PouzivatelController extends AControllerBase
                     return $this->html($data, 'pridaj');
                 }
             }
-            if ($_POST['passwordRaz'] ==  $_POST['passwordDva'] ) {
+            if (preg_match('~[0-9]+~', $_POST['meno']) || preg_match('~[0-9]+~', $_POST['priezvisko'])) {
+                $data = ['message' => 'Nazov nesmie obsahovat cislo!'];
+            }  else if ($_POST['passwordRaz'] ==  $_POST['passwordDva'] ) {
                 $pouzivatel = new Pouzivatel($_POST['login'], password_hash($_POST['passwordRaz'], PASSWORD_DEFAULT), $_POST['meno'], $_POST['priezvisko'], $_POST['kontakt'], "0");
                 $pouzivatel->save();
                 $data = [];
@@ -67,10 +69,9 @@ class PouzivatelController extends AControllerBase
         if (isset($formData['submit'])) {
             $logged = $this->app->getAuth()->login($formData['login'], $formData['password']);
             if ($logged) {
-                return $this->redirect('?c=pouzivatel');
+                $this->presmeruj();
             }
         }
-
         $data = ($logged === false ? ['message' => 'Zlý login alebo heslo!'] : []);
         return $this->html($data, 'prihlasenie');
     }
@@ -90,17 +91,15 @@ class PouzivatelController extends AControllerBase
         $data=[];
         if ($this->app->getAuth()->isLogged()) {
             if(isset($_POST['meno'])) {
-                $pouzivatelia = Pouzivatel::getAll();
-                foreach ($pouzivatelia as $pouzivatel) {
-                    if ($pouzivatel->getLogin() == $_POST['login']) {
-                        $data = ['message' => 'Login uz existuje!'];
-                    }
-                }
+                if (preg_match('~[0-9]+~', $_POST['meno']) || preg_match('~[0-9]+~', $_POST['priezvisko'])) {
+                    $data = ['message' => 'Meno ani priezvisko nesmie obsahovat cislo!'];
+                    return $this->html($data, 'uprav');
+                }  else{
                 $this->app->getAuth()->getLoggedUser()->setMeno($_POST['meno']);
                 $this->app->getAuth()->getLoggedUser()->setPriezvisko($_POST['priezvisko']);
                 $this->app->getAuth()->getLoggedUser()->setKontakt($_POST['kontakt']);
-                $this->app->getAuth()->getLoggedUser()->setLogin($_POST['login']);
                 $this->app->getAuth()->getLoggedUser()->save();
+                }
                 $logged = $this->app->getAuth()->login($this->app->getAuth()->getLoggedUser()->getLogin(), $_POST['passwordStare']);
                 if ($logged) {
                     $this->app->getAuth()->getLoggedUser()->setPassword(password_hash($_POST['passwordNove'], PASSWORD_DEFAULT));

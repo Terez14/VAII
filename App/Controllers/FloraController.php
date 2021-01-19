@@ -25,30 +25,47 @@ class FloraController extends AControllerBase
 
     public function pridaj()
     {
-        if ($this->app->getAuth()->isLogged()) {
+        $data=[];
             if (isset($_POST['nazov'])) {
+                if (strpos($_POST['obrazok'], 'https://') !== false) {
+                    if (preg_match('~[0-9]+~', $_POST['nazov'])) {
+                        $data = ['message' => 'Nazov nesmie obsahovat cislo!'];
+                    } else {
+                        $polozka = new Polozka($this->app->getAuth()->getLoggedUser()->getId(), $_POST['nazov'], $_POST['popis'], $_POST['obrazok']);
+                        $polozka->save();
+                        $this->presmeruj();
+                    }
 
-                $polozka = new Polozka($this->app->getAuth()->getLoggedUser()->getId(), $_POST['nazov'], $_POST['popis'], $_POST['obrazok']);
-                $polozka->save();
-                $this->presmeruj();
+                }else{
+                    $data = ['message' => 'obrazok musi byt webovy odkaz zacinajuci sa https://!'];
+                }
             }
-        }
-        return $this->html([], 'pridaj');
+        return $this->html($data, 'pridaj');
     }
 
     public function uprav() {
+
         $polozka = Polozka::getOne($_GET['id']);
         if(isset($_POST['nazov'])) {
-            if ($_POST['nazov'] == null || $_POST['popis'] == null || $_POST['obrazok'] == null) {
-                $this->presmeruj();
-            } else {
-                $polozka->setNazov($_POST['nazov']);
-                $polozka->setPopis($_POST['popis']);
-                $polozka->setObrazok($_POST['obrazok']);
-                $polozka->save();
-                $this->presmeruj();
+            if (strpos($_POST['obrazok'], 'https://') !== false) {
+                if (preg_match('~[0-9]+~', $_POST['nazov'])) {
+                    $data = ['message' => 'Nepodarilo sa upravit. Nazov nesmie obsahovat cislo!'];
+                    return $this->html($data, 'index');
+                } else {
+                    $polozka->setNazov($_POST['nazov']);
+                    $polozka->setPopis($_POST['popis']);
+                    $polozka->setObrazok($_POST['obrazok']);
+                    $polozka->save();
+                    $this->presmeruj();
+                }
+
+            }else{
+                $data = ['message' => 'Nepodarilo sa upravit. Obrazok musi byt webovy odkaz zacinajuci sa https://!'];
+                return $this->html($data, 'index');
             }
+
         }
+
         return $this->html(['polozka'=>$polozka], 'uprav');
 
     }

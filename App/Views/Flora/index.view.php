@@ -1,4 +1,5 @@
 <?php
+/** @var Array $data */
 /** @var \App\Core\APrihlasovanie $auth */
 ?>
 <body>
@@ -11,6 +12,9 @@
                         <a href="?c=flora&a=pridaj" class="btn btn-secondary btn-bg" >Pridaj polozku</a>
 
                     </div>
+                <div class="text-center text-danger mb-3">
+                    <?= @$data['message'] ?>
+                </div>
                 <br>
                 <div class="row" id="polozky">
 

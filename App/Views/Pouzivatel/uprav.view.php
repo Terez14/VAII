@@ -7,6 +7,9 @@
     <div class="row">
         <div class="col">
             <form method="post">
+                <div class="text-center text-danger mb-3">
+                    <?= @$data['message'] ?>
+                </div>
                 <div class="form-group">
                     <label class="form">Meno</label>
                     <input type="text" name="meno" class="form-control" value="<?=$auth->getLoggedUser()->getMeno()?>">
@@ -19,13 +22,7 @@
                     <label>Kontakt</label>
                     <input type="text" name="kontakt" class="form-control" value="<?=$auth->getLoggedUser()->getKontakt()?>">
                 </div>
-                <div class="form-group">
-                    <label>login</label>
-                    <input type="text" name="login" class="form-control" value="<?=$auth->getLoggedUser()->getLogin()?>">
-                </div>
-                <div class="text-center text-danger mb-3">
-                    <?= @$data['message'] ?>
-                </div>
+
                 <div class="form-group">
                     <label>stare heslo</label>
                     <input type="password" name="passwordStare" class="form-control">
