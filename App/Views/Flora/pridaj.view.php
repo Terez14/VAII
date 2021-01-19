@@ -21,7 +21,13 @@
                     <label>Adresa obrazka</label>
                     <input type="text" name="obrazok" class="form-control" required>
                 </div>
+                <div>
                 <button type="submit" class="btn btn-primary">Odosli</button>
+                </div>
+                <br>
+                <div>
+                    <a href="?c=flora" class="btn btn-primary btn-bg">Spat</a>
+                </div>
             </form>
         </div>
     </div>

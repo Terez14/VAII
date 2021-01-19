@@ -1,7 +1,7 @@
 <?php
 /** @var \App\Core\APrihlasovanie $auth */
 ?>
-<div calss="container udaje">
+<div class="container udaje">
     <div class="row">
         <div class="col">
             <div class="osobneUdaje">
@@ -14,7 +14,7 @@
                     </div>
                     <div class="form-group">
                         <label >Email: <?= $auth->getLoggedUser()->getKontakt()?></label>
-                       </div>
+                    </div>
                     <div class="form-group">
                         <label>login: <?= $auth->getLoggedUser()->getLogin()?></label>
                     </div>

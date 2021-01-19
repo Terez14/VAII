@@ -11,7 +11,7 @@
                         <?= @$data['message'] ?>
                     </div>
                     <div>
-                    <form class="form-signin" method="post" ">
+                    <form class="form-signin" method="post" >
                         <div class="form-label-group">
                             <input name="login" type="text" id="login" class="form-control" placeholder="login"
                                    required autofocus>
@@ -23,9 +23,10 @@
                         </div>
                         <br>
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="submit">Prihlásiť</button>
-                    </div>
+
 
                     </form>
+                    </div>
                     <p>Ak nie ste zaregistrovany zaregistrujte sa <a href="?c=pouzivatel&a=pridaj">Registracia</a></p>
 
                 </div>

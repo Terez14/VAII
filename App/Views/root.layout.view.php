@@ -2,6 +2,7 @@
 /** @var string $contentHTML */
 /** @var \App\Core\APrihlasovanie $auth */
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
